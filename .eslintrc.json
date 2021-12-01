@@ -1,0 +1,17 @@
+{
+  "plugins": ["prettier"],
+  "extends": ["next/core-web-vitals", "prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+
+    "no-unused-vars": "warn",
+    "no-console": "off",
+    "func-names": "off",
+    "no-process-exit": "off",
+    "object-shorthand": "off",
+    "class-methods-use-this": "off",
+
+    "react/jsx-filename-extension": [1, {"extensions": [".js", ".jsx", ".tsx"]}],
+    "react/jsx-one-expression-per-line": "off"
+  }
+}
