@@ -9,6 +9,5 @@ USER builder
 RUN npm i && \
     npm run build && \
     # if ! dev npm prune for production else run cypress
-    npx wait-on prisma db push --accept-data-loss
     
-CMD ["npm", "run", "start"]
+ENTRYPOINT ["npx", "prisma", "db", "push", "--accept-data-loss", "&&", "npm", "run", "start"]
