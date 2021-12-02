@@ -31,24 +31,23 @@ import {
 import { Avatar } from '@chakra-ui/avatar'
 
 const Home: NextPage = () => {
-  const theme : Theme = useTheme()
+  const theme: Theme = useTheme()
 
-  const ShipWreck = (props: {
-    shipName : string
-  }) => {
+  const ShipWreck = (props: { shipName: string }) => {
     return (
       <HStack w="full">
         <Text>{props.shipName}</Text>
         <Spacer />
-        <IconButton aria-label="Go to shipwreck" fontSize="lg" icon={<MdArrowForwardIos />} />
+        <IconButton
+          aria-label="Go to shipwreck"
+          fontSize="lg"
+          icon={<MdArrowForwardIos />}
+        />
       </HStack>
     )
   }
 
-  const Rescuer = (props: {
-    picture? : string,
-    name: string
-  }) => {
+  const Rescuer = (props: { picture?: string; name: string }) => {
     return (
       <VStack spacing={4}>
         <Avatar size="xl" src={props.picture} />
@@ -78,21 +77,29 @@ const Home: NextPage = () => {
           <Text as={'h1'} fontSize="4xl" color={theme.colors.white}>
             Rechercher un sauvetage
           </Text>
-          <FormControl width={{
-              base: "80%",
-              md: "50%"
-            }}>
-            <Stack direction={{
-              base: "column",
-              md: "row"
-            }}> 
+          <FormControl
+            width={{
+              base: '80%',
+              md: '50%',
+            }}
+          >
+            <Stack
+              direction={{
+                base: 'column',
+                md: 'row',
+              }}
+            >
               <Input
                 placeholder="Exemple : Marie"
                 bgColor={theme.colors.gray[100]}
                 type="text"
                 onClick={() => console.log('')}
               />
-              <IconButton aria-label="Search shipwreck" fontSize="xl" icon={<MdSearch />}></IconButton>
+              <IconButton
+                aria-label="Search shipwreck"
+                fontSize="xl"
+                icon={<MdSearch />}
+              ></IconButton>
             </Stack>
           </FormControl>
         </VStack>
@@ -162,16 +169,14 @@ const Home: NextPage = () => {
           w="full"
           justify="center"
           spacing={8}
-          
-
         >
           <Text fontSize="4xl">Les héros du jour</Text>
           <Stack
-          spacing={24}
-          direction={{
-            base: "column",
-            md:"row"
-          }}
+            spacing={24}
+            direction={{
+              base: 'column',
+              md: 'row',
+            }}
           >
             <Rescuer name="Test Test" />
             <Rescuer name="Test Test" />
