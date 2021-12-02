@@ -9,6 +9,6 @@ USER builder
 RUN npm i && \
     npm run build && \
     # if ! dev npm prune for production else run cypress
-    if [ "$DEV_BUILD" = "True" ]; then npm start & npx wait-on http://localhost:3000; else npm prune --production && npm run start; fi
-
-CMD ["npx", "prisma", "db", "push", "--accept-data-loss", "&&", "npm", "run", "start"]
+    if [ "$DEV_BUILD" = "True" ]; then npx wait-on prisma db push --accept-data-loss && npm start & npx wait-on http://localhost:3000; else npm prune --production && npm run start; fi
+    
+CMD ["npm", "run", "start"]
