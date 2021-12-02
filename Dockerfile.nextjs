@@ -7,7 +7,7 @@ ARG DEV_BUILD="False"
 USER builder
 
 RUN npm i && \
-    npm run build && \
+    npm run build
     # if ! dev npm prune for production else run cypress
     
 CMD ["npx prisma db push --accept-data-loss", "npm run start"]
