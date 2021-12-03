@@ -1,0 +1,14 @@
+FROM dev-registry.danybot.com/cypress-node-deb:1
+
+COPY --chown=builder:builder . /home/builder/
+
+ARG DEV_BUILD="False"
+
+USER builder
+
+RUN npm i && \
+    npx prisma db push --accept-data-loss && \
+    npm run build
+    # if ! dev npm prune for production else run cypress
+    
+CMD ["npm", "run", "start"]
